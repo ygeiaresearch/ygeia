@@ -1,0 +1,1 @@
+web: gunicorn ygeia.wsgi --log-file -

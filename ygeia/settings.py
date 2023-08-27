@@ -8,7 +8,7 @@ DIRNAME = os.path.abspath(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'os4_d#v@9svdg@z!*@=2(vj--npk-dm!7blml^=u!@%wws(h#+'
+SECRET_KEY = os.environ.get('YGEIA_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

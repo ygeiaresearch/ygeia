@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	{% block metatags %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Ygeia Research">
+  <meta name="description" content="Using cutting-edge engineering to solve the water crisis.">
+  <meta name="author" content="Michael A Johnson">
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="keywords" content="ygeia. research, water crisis">
+  <meta property="og:site_name" content="Ygeia Research">
+  <meta property="og:url" content="https://ygeiaresearch.org">
+  <meta property="og:title" content="Ygeia Research">
+  <meta property="og:description" content="Using cutting-edge engineering to solve the water crisis.">
+  <meta property="og:image" content="https://ygeiaresearch.org/static/img/logo.png">
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+        <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+
+	{% endblock %}
+	<title>{% block title %}Ygeia Research{% endblock %}</title>
+
+	{% block more_css %}
+  
+	{% endblock %}
+</head>
+
+<body  >
+        <nav class="navbar navbar-inverse headera navbar-default navbar-fixed-top nbb" role="banner">
+            <div class="col-md-offset-1 col-md-10 nlp">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand zl" href="/">
+                        <img src="/static/img/jellyfish.png" width="30px" class="jelly" /> YGEIA 
+                    </a>                
+                </div>
+                
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Engage <span class="caret"></span></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="/projects"> Project Database</a></li>
+                            <li><a href="/documentation">Documentation</a></li>
+                            <li><a href="//github.com/ygeiaresearch/ygeia"> Source Code</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://discord.gg/78PzXAS7Fy">Join our Discord</a></li>
+                            <li><a href="https://reddit.com/r/ygeia">Join our subreddit</a></li>
+                          </ul>
+                        </li>
+                        
+                        <li><a href="/about"> About</a></li>
+                        
+                                
+                        
+                        <li><a href="/accounts/login/"> Login </a></li>
+                        <li><a href="/accounts/signup/"> Signup </a></li>
+
+                                          
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+        
+    
+	{% block content %}
+
+	{% endblock %}
+
+<footer id="footer" class="midnight-blue">
+        <div class="container">
+
+            <div class="col-md-8 col-md-offset-2 ferter">
+                <div class="col-md-4 col-sm-3 col-xs-4 col-md-offset-0 col-sm-offset-1 ta-left">
+                    <div class="widget">
+                        <h3>Project</h3>
+                        <ul>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="mailto:michael@ygeiaresearch.org">Contact</a></li>
+                            
+                        </ul>
+                    </div>    
+                </div>
+
+                <div class="col-md-4 col-sm-3 col-xs-4 ta-center">
+                    <div class="widget">
+                        <h3>Developers</h3>
+                        <ul>
+                            <li><a href="https://github.com/ygeiaresearch/ygeia">Source Code</a></li>
+                        <li><a href="/api-home"> API</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-4 col-sm-3 col-xs-4 ta-right">
+                    <div class="widget">
+                        <h3>Follow</h3>
+                        <ul>
+                            <li><a href="https://discord.gg/78PzXAS7Fy"> Discord</a></li>
+                            <li><a href="https://old.reddit.com/r/ygeia"> Reddit</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+
+                <div class="col-sm-6">
+                    &copy; 2023 YGEIA 
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right leebool">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="mailto:michael@ygeiaresearch.org">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+	{% block more_js %}
+
+	{% endblock %}
+
+</body>
+</html>
+
+    

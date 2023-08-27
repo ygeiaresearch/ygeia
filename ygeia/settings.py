@@ -11,18 +11,18 @@ DIRNAME = os.path.abspath(os.path.dirname(__file__))
 SECRET_KEY = os.environ.get('YGEIA_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+IS_PRODUCTION = os.environ.get('IS_PRODUCTION')
 
-if DEBUG:
-    STATIC_ROOT = os.path.join(DIRNAME, '/static')
-    STATICFILES_DIRS = (
-        os.path.join(DIRNAME, 'static'),
-    )
-else:
+if IS_PRODUCTION == 'True':
     STATIC_ROOT = os.path.join(DIRNAME, 'static')
     STATICFILES_DIRS = (
         os.path.join(DIRNAME, 'staticfiles/'),
     )
+else:
+    STATIC_ROOT = os.path.join(DIRNAME, '/static')
+    STATICFILES_DIRS = (
+        os.path.join(DIRNAME, 'static'),
+    ) 
 
 ALLOWED_HOSTS = ['*']
 

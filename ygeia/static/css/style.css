@@ -2048,3 +2048,50 @@ p {
 .s1bottom{
   font-size:13px;
 }
+.input{
+  border-radius:  10px;
+  -moz-border-radius:  10px;
+  -webkit-border-radius:  10px;
+  height: 35px;
+  float: left;
+  margin: 10px;
+}
+#output{
+  border: 1px solid #aaa;
+  height: 35px;
+   border-radius:  10px;
+  -moz-border-radius:  10px;
+  -webkit-border-radius:  10px;
+  float: left;
+  margin: 10px;
+  padding: 7px;
+  background: #d3e8ff ;
+}
+.inputlabel{
+  font-size: 15px!important;
+  float: left;
+  margin-top: 17px;
+}
+.outputlabel{
+  font-size: 15px!important;
+  float: left;
+  margin-top: 17px;
+}
+.calculator-box{
+  background:#eee; 
+  border:1px solid #ddd; 
+  padding:20px; 
+  border-radius:10px; 
+  -moz-border-radius: 10px; 
+  -webkit-border-radius: 10px;
+}
+.box{
+  margin-top:100px; 
+  padding: 50px; 
+  height:450px; 
+  float:none!important; 
+  margin-bottom:200px;
+}
+.left-border{
+  border-left: 1px solid #ddd;
+}

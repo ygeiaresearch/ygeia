@@ -18,13 +18,19 @@ if IS_PRODUCTION == 'True':
     STATICFILES_DIRS = (
         os.path.join(DIRNAME, 'staticfiles/'),
     )
+    DEBUG = False
 else:
     STATIC_ROOT = os.path.join(DIRNAME, '/static')
     STATICFILES_DIRS = (
         os.path.join(DIRNAME, 'static'),
     ) 
+    DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '127.0.0.1', 
+    'ygeiaresearch.org', 
+    'ygeiaresearch.com', 
+    'ygeia.com']
 
 
 # Application definition

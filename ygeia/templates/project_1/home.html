@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-10 col-md-offset-1 box">
+	<h1 style="color:#111; font-size:50px; font-weight: bold;"> Project 1: PotPerm Calculator </h1>
+	<p> This is the Potassium Permanganate calculator, the first project of Ygeia Research. It takes 2 inputs, Fe amount and Mn amount, and outputs a PotPerm amount, using the equation [Mn2+] * [Fe2+] * 2.874. </p>
+	<br>
+	<div class="col-md-8 calculator-box">
+		<div class="inputlabel"> Fe amount</div>
+		<input type="number" id="fe_amt" name="fe_amt" class="input col-md-3">
+		<br><br><br>
+		<div class="inputlabel">Mn amount</div>
+		<input type="number" id="mn_amt" name="mn_amt" class="input col-md-3">
+		<br><br><br>
+		<div class="outputlabel">KMnO_4 amount needed</div>
+		<div id="output" class="col-md-3">Waiting for input...</div>
+	</div>
+	<div class="col-md-4 left-border">
+		This calculator is based off of the findings of this paper:
+
+		<b><a href=" https://www.e3s-conferences.org/articles/e3sconf/pdf/2021/36/e3sconf_aepee2021_01025.pdf"> Research on removal of manganese in drinking water by potassium permanganate </a></b>
+
+	</div>
+</div>
+{% endblock %}
+
+{% block more_js %}
+<script>
+
+	Template = {
+		render : function(){
+			Template.keyups()
+		},
+		keyups : function(){
+			$('.input').keyup(function(){
+				var fe_amt = $('#fe_amt').val();
+				var mn_amt = $('#mn_amt').val();
+				$('#output').text(
+					Ygeia.calculate_amt_pot_perm(
+						fe_amt,
+						mn_amt
+					)
+				)
+			})
+		}
+	}
+	$(document).ready(function(){
+		Template.render()
+	})
+</script>
+{% endblock %}

@@ -9,3 +9,8 @@ def about(request):
 	context = {}
 	template_name = 'about.html'
 	return render(request, template_name, context)
+
+def projects(request):
+	context = {}
+	template_name = 'projects.html'
+	return render(request, template_name, context)

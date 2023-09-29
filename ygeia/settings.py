@@ -19,7 +19,7 @@ if IS_PRODUCTION == 'True':
     STATICFILES_DIRS = (
         os.path.join(DIRNAME, 'staticfiles/'),
     )
-    DEBUG = False
+    DEBUG = True
     import dj_database_url
     DBPW = os.environ.get("DBPW")
     DATABASES = {
@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    
+
     'root_app',
     'project_1',
     'journal',

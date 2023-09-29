@@ -44,6 +44,7 @@ ALLOWED_HOSTS = [
     'ygeiaresearch.com',
 ]
 
+SITE_ID = 1
 
 # Application definition
 

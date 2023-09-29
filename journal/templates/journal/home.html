@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+
+{% block more_css %}
+<style>
+    @font-face {
+      font-family: 'helvneue';
+      src: url(/static/fonts/helveticaneue/HelveticaNeue.ttf);
+    }
+    body{
+        font-family: 'helvneue', 'Helvetica';
+    }
+    h1{
+        font-family: 'helvneue';
+    }
+  .blog-content{
+    margin-top: 20px;
+    padding: 30px;
+  }
+
+  .block-visualization a{
+    padding: 25px;
+  }
+    .richtext-image{
+        padding: 25px;
+    }
+    .left{
+        float: left;
+    }
+    .right{
+        float: right;
+    }
+    .list-unstyled-top>li{
+        border-bottom: 1px solid #aaa;
+        padding: 15px 0px;
+        list-style: none;
+    }
+    .triangles{
+        background: url(/static/img/triangles.svg);
+        width: 100%;
+        height: 200px;
+        top: 50px;
+        left:  0px;
+        position: absolute;
+    }
+
+    .blog-page-header{
+        position: relative;
+        margin-top: 50px;
+        height: 200px;
+    }
+
+    .blog-page-header-nav{
+        color: white;
+        padding: 10px;
+
+    }
+
+    .blog-page-header a{
+        color: #ddd;
+    }
+
+    .blog-page-header a:hover{
+        color: #fff;
+    }
+    h2{
+        color: #eee;
+    }
+    ul{
+        list-style: none;
+    }
+    ul ul{
+        list-style: none;
+    }
+</style>
+{% endblock %}
+{% block content %}
+	<div class="triangles">
+
+    </div>
+
+    <div class="blog-page-header" style="width:100%;">
+        <div class="col-md-10 col-md-offset-1" style="margin-top:50px;">
+            <h2 style="font-size:50px;"> The Journal
+            <h6 class="blog-page-header-nav"> <a href="/journal/home"> The Journal </a> </h6>
+        </div>
+    </div>
+    <div class="col-md-10 col-md-offset-1" style="float:none; height:auto; overflow:auto; padding:50px;">
+
+        <h3> Case Studies </h3>
+        <ul> 
+            <li>
+                <ul> New Product Development 
+                    {% for npd_page in new_product_development_pages %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{npd_page.slug}}">{{npd_page.title}}</a></li>
+                    {% empty %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>
+                <ul> Profiling / Segmentation
+                    {% for prs_page in profiling_segmentation_pages %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{prs_page.slug}}">{{prs_page.title}}</a></li>
+                    {% empty %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>
+                <ul> Product / Market Forecasting 
+                    {% for pmf_page in product_marketing_forecasting_pages %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{pmf_page.slug}}">{{pmf_page.title}}</a></li>
+                    {% empty %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>
+                <ul> Pricing 
+                    {% for pri_page in pricing_pages %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{pri_page.slug}}">{{pri_page.title}}</a></li>
+                    {% empty %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>
+                <ul> Customer Satisfaction
+                    {% for cus_page in customer_satisfaction_pages %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{cus_page.slug}}">{{cus_page.title}}</a></li>
+                    {% empty %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+
+        <h3>General Information</h3>
+        <p> No articles yet! </p>
+    {% for page in pages %}
+
+    {% empty %}
+
+    {% endfor %}
+
+    	   
+        </div>
+    </div>
+    {% endblock %}

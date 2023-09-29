@@ -24,7 +24,7 @@ if IS_PRODUCTION == 'True':
     STATICFILES_DIRS = (
         os.path.join(PROJECT_DIR, 'static'),
     )
-    DEBUG = False
+    DEBUG = True
     import dj_database_url
     DBPW = os.environ.get("DBPW")
     DATABASES = {

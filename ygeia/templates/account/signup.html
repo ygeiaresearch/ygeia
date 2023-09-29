@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block title %}Sign In{% endblock %}
+
+
+{% block content %}
+
+<div class="whiteblock col-md-4 col-md-offset-4">
+<center>
+
+<div class="bigendy prata-font"><img src="/static/img/jellyfish.png" width="30px" class="jelly" /> YGEIA</div><br>
+<h1 class="small1 up1">{% trans "Sign Up" %}</h1>
+
+{% if form.errors %}
+                                        <p>{{form.errors}}</p>
+                                        {% endif %}
+
+</center>
+<center>
+
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  <p><input type="text" class="form-control fcs" name="username" value="{{form.username.value|default_if_none:''}}" placeholder="Username" autofocus="autofocus" minlength="1" maxlength="150" required id="id_username" /></p>
+<p><input type="email" class="form-control fcs" name="email" value="{{form.email.value|default_if_none:''}}" placeholder="E-mail address" id="id_email" /></p>
+<p><input type="password" class="form-control fcs" name="password1" placeholder="Password" required id="id_password1" /></p>
+<p><input type="password" class="form-control fcs" name="password2" placeholder="Password (confirm)" required id="id_password2" /></p>
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button class="btn tealbg signupbutton" type="submit">{% trans "Sign Up" %} &raquo;</button>
+</form>
+</center>
+</div>
+{% endblock %}
+{% block footer %}{% endblock %}

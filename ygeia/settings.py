@@ -12,6 +12,7 @@ SECRET_KEY = os.environ.get('YGEIA_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 IS_PRODUCTION = os.environ.get('IS_PRODUCTION')
+DIRNAME = os.path.abspath(os.path.dirname(__file__))
 
 if IS_PRODUCTION == 'True':
     STATIC_ROOT = os.path.join(DIRNAME, 'static')
@@ -19,18 +20,29 @@ if IS_PRODUCTION == 'True':
         os.path.join(DIRNAME, 'staticfiles/'),
     )
     DEBUG = False
+    import dj_database_url
+    DBPW = os.environ.get("DBPW")
+    DATABASES = {
+        'default': dj_database_url.config(default=f'postgres://postgres:{DBPW}@localhost:5432/ygeia')
+    }
 else:
     STATIC_ROOT = os.path.join(DIRNAME, '/static')
     STATICFILES_DIRS = (
         os.path.join(DIRNAME, 'static'),
     ) 
     DEBUG = True
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 ALLOWED_HOSTS = [
     '127.0.0.1', 
     'ygeiaresearch.org', 
-    'ygeiaresearch.com', 
-    'ygeia.com']
+    'ygeiaresearch.com',
+]
 
 
 # Application definition
@@ -42,9 +54,41 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'root_app',
     'project_1',
+    'journal',
+
+    "wagtail.contrib.forms",
+    "wagtail.contrib.redirects",
+    "wagtail.embeds",
+    "wagtail.sites",
+    "wagtail.users",
+    "wagtail",
+    "wagtail.admin",
+
+    'storages',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    'taggit',
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+WAGTAIL_SITE_NAME = 'Ygeia'
+
+AWS_S3_FILE_OVERWRITE = False
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY')
+AWS_STORAGE_BUCKET_NAME = 'ygeia'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,6 +98,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'ygeia.urls'
@@ -79,6 +125,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ygeia.wsgi.application'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases

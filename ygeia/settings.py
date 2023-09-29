@@ -20,11 +20,11 @@ CSRF_TRUSTED_ORIGINS = ['https://ygeiaresearch.org','https://ygeiaresearch.com']
 
 
 if IS_PRODUCTION == 'True':
-    STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(DIRNAME, 'static')
     STATICFILES_DIRS = (
-        os.path.join(PROJECT_DIR, 'static'),
+        os.path.join(DIRNAME, 'staticfiles/'),
     )
-    DEBUG = True
+    DEBUG = False
     import dj_database_url
     DBPW = os.environ.get("DBPW")
     DATABASES = {

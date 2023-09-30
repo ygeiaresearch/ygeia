@@ -87,78 +87,20 @@
     </div>
     <div class="col-md-10 col-md-offset-1" style="float:none; height:auto; overflow:auto; padding:50px;">
 
-        <h3> Case Studies </h3>
+        <h3> Articles </h3>
         <ul> 
+            {% for page_type in page_types %}
             <li>
-                <ul> New Product Development 
-                    {% for npd_page in new_product_development_pages %}
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{npd_page.slug}}">{{npd_page.title}}</a></li>
+                <ul> {{page_type.title}} 
+                    {% for page in page_type.journal_page_set.all %}
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{page.slug}}">{{page.title}}</a></li>
                     {% empty %}
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
                     {% endfor %}
                 </ul>
             </li>
-            <li>
-                <ul> Profiling / Segmentation
-                    {% for prs_page in profiling_segmentation_pages %}
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{prs_page.slug}}">{{prs_page.title}}</a></li>
-                    {% empty %}
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    {% endfor %}
-                </ul>
-            </li>
-            <li>
-                <ul> Product / Market Forecasting 
-                    {% for pmf_page in product_marketing_forecasting_pages %}
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{pmf_page.slug}}">{{pmf_page.title}}</a></li>
-                    {% empty %}
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    {% endfor %}
-                </ul>
-            </li>
-            <li>
-                <ul> Pricing 
-                    {% for pri_page in pricing_pages %}
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{pri_page.slug}}">{{pri_page.title}}</a></li>
-                    {% empty %}
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    {% endfor %}
-                </ul>
-            </li>
-            <li>
-                <ul> Customer Satisfaction
-                    {% for cus_page in customer_satisfaction_pages %}
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{cus_page.slug}}">{{cus_page.title}}</a></li>
-                    {% empty %}
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp;Test </li>
-                    {% endfor %}
-                </ul>
-            </li>
+            {% endfor %}
+          
         </ul>
-
-        <h3>General Information</h3>
-        <p> No articles yet! </p>
-    {% for page in pages %}
-
-    {% empty %}
-
-    {% endfor %}
-
     	   
         </div>
     </div>

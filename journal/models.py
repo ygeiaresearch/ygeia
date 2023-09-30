@@ -15,31 +15,15 @@ from wagtail.contrib.routable_page.models import RoutablePageMixin, path
 
 # from modelcluster.fields import ParentalKey, ParentalManyToManyField
 
-"""
-class Visualization(models.Model):
+class PageType(models.Model):
 	title = models.CharField(max_length=255)
-	description = models.TextField()
-	code = models.TextField()
-	
+
 	def __str__(self):
 		return self.title
 
-class VisualizationLinkBlock(blocks.StructBlock):
-	href = blocks.CharBlock(required=True)
-	text = blocks.CharBlock(required=True)
-	id_ = blocks.CharBlock(required=True)
-	float_ = blocks.CharBlock(required=True)
-
-	class Meta:
-		template = 'visualization_link_block.html'
-"""
-ARTICLE_TYPES = (
-	('GI', 'General Information'),
-)
-
 class JournalPage(Page):
     body = RichTextField(blank=True)
-
+    page_type = models.ForeignKey(PageType, on_delete=models.CASCADE)
     content_panels = Page.content_panels + [
         FieldPanel('body')
     ]

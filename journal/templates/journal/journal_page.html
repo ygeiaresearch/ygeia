@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+
+{% block more_css %}
+<style>
+    @font-face {
+      font-family: 'helvneue';
+      src: url(/static/fonts/helveticaneue/HelveticaNeue.ttf);
+    }
+    body{
+        font-family: 'helvneue', 'Helvetica';
+    }
+    h1{
+        font-family: 'helvneue';
+    }
+  .blog-content{
+    margin-top: 20px;
+    padding: 30px;
+  }
+
+  .block-visualization a{
+    padding: 25px;
+  }
+    .richtext-image{
+        padding: 25px;
+    }
+    .left{
+        float: left;
+    }
+    .right{
+        float: right;
+    }
+    .list-unstyled-top>li{
+        border-bottom: 1px solid #aaa;
+        padding: 15px 0px;
+        list-style: none;
+    }
+    .triangles{
+        background: url(/static/img/triangles.svg);
+        width: 100%;
+        height: 200px;
+        top: 50px;
+        left:  0px;
+        position: absolute;
+    }
+
+    .blog-page-header{
+        position: relative;
+        margin-top: 50px;
+        height: 200px;
+    }
+
+    .blog-page-header-nav{
+        color: white;
+        padding: 10px;
+
+    }
+
+    .blog-page-header a{
+        color: #ddd;
+    }
+
+    .blog-page-header a:hover{
+        color: #fff;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #eee;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="triangles">
+
+    </div>
+
+    <div class="blog-page-header" style="width:100%;">
+        <div class="col-md-10 col-md-offset-1" style="margin-top:50px;">
+            <h2 style="font-size:50px;"> {{page.title}}</h2>
+            <h6 class="blog-page-header-nav"> <a href="/journal/home"> The Journal </a> > <a href="/journal/home"> {{page.page_type}} </a> > {{page.title}} </a> </h6>
+        </div>
+    </div>
+
+    <div class="col-md-10 col-md-offset-1" style="float:none;height:auto;overflow:auto">
+        <nav id="sidebar" class="col-md-2" style="margin-top:30px">
+            <div class="p-4 pt-5">
+
+            <ul class="list-unstyled-top components mb-5">
+                {% for page_type in page_types %}
+                <li>
+                <a href="#pageSubmenu{{forloop.counter}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{page_type.name}}</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu1">
+                    {% for page in page_type.journal_page_set.all %}
+                         <li><a href="/journal/{{page.title}}"> &nbsp; &nbsp; {{page}}</a></li>
+                    {% endfor %}    
+                </ul>
+                </li>
+                {% endfor %}
+            </ul>
+            
+            <div class="mb-5">
+            <h5>Search</h5>
+            <form action="#" class="subscribe-form">
+            <div class="form-group d-flex">
+            <div class="icon"><span class="icon-paper-plane"></span></div>
+            <input type="text" class="form-control" placeholder="Search Case Studies">
+            </div>
+            </form>
+            </div>
+            </div>
+            </nav>
+        <div class="blog-content col-md-10">
+            {{page.body|safe}}
+        </div>
+    </div>
+	
+{% endblock %}
+
+{% block more_js %}
+{% endblock %}

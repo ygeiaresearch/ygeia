@@ -7,5 +7,5 @@ def home(request):
 	context = {
 		'pages': Page.objects.all()
 	}
-	template_name = 'blog/home.html'
+	template_name = 'journal/home.html'
 	return render(request, template_name, context)

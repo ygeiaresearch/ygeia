@@ -22,13 +22,14 @@ urlpatterns = [
     path('about', root_views.about, name='about'),
     path('projects', root_views.projects, name='projects'),
     path('project-1', project_1_views.home, name="project_1"),
-
-	path('cms/', include(wagtailadmin_urls)),
-    path('documents/', include(wagtaildocs_urls)),
     
-    # path('subscribe/', root_views.SubscriptionCreateView.as_view(), name="subscribe"),
-    # path('subscribe/success/', root_views.subscribe_success, name="subscribe_success"),
+    path('subscribe/', root_views.SubscriptionCreateView.as_view(), name="subscribe"),
+    path('subscribe/success/', root_views.subscribe_success, name="subscribe_success"),
+    
     path('journal/home/', journal_views.home, name="journal_home"),
+
     path('journal/', include(wagtail_urls)),
+    path('cms/', include(wagtailadmin_urls)),
+    path('documents/', include(wagtaildocs_urls)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

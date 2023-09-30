@@ -66,13 +66,20 @@ INSTALLED_APPS = [
     'project_1',
     'journal',
 
-    "wagtail.contrib.forms",
-    "wagtail.contrib.redirects",
-    "wagtail.embeds",
-    "wagtail.sites",
-    "wagtail.users",
-    "wagtail",
-    "wagtail.admin",
+    'wagtail.contrib.forms',
+	'wagtail.contrib.redirects',
+	'wagtail.embeds',
+	'wagtail.sites',
+	'wagtail.users',
+	'wagtail.snippets',
+	'wagtail.documents',
+	'wagtail.images',
+	'wagtail.search',
+	'wagtail.admin',
+	'wagtail',
+
+	'modelcluster',
+    'taggit',
 
     'storages',
 
@@ -80,7 +87,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-    'taggit',
+
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -90,8 +97,16 @@ WAGTAIL_SITE_NAME = 'Ygeia'
 
 AWS_S3_FILE_OVERWRITE = False
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY')

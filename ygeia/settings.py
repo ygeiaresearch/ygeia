@@ -26,10 +26,19 @@ if IS_PRODUCTION == 'True':
     )
     DEBUG = False
     import dj_database_url
+    """
     DBPW = os.environ.get("DBPW")
+
     DATABASES = {
         'default': dj_database_url.config(default=f'postgres://postgres:{DBPW}@localhost:5432/ygeia')
     }
+    """
+    DATABASES = {
+	    'default': {
+	        'ENGINE': 'django.db.backends.sqlite3',
+	        'NAME': os.path.join(BASE_DIR, 'prod.sqlite3'),
+	    }
+	}
 else:
     STATIC_ROOT = os.path.join(DIRNAME, '/static')
     STATICFILES_DIRS = (
@@ -154,6 +163,12 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

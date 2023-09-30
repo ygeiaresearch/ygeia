@@ -84,7 +84,7 @@
     <div class="blog-page-header" style="width:100%;">
         <div class="col-md-10 col-md-offset-1" style="margin-top:50px;">
             <h2 style="font-size:50px;"> {{page.title}}</h2>
-            <h6 class="blog-page-header-nav"> <a href="/journal/home"> The Journal </a> > <a href="/journal/home"> {{page.page_type}} </a> > {{page.title}} </a> </h6>
+            <h6 class="blog-page-header-nav"> <a href="/journal/home"> The Journal </a> > <a href="/journal/page-type/{{page.page_type}}"> {{page.page_type}} </a> > {{page.title}} </a> </h6>
         </div>
     </div>
 
@@ -95,11 +95,11 @@
             <ul class="list-unstyled-top components mb-5">
                 {% for page_type in page_types %}
                 <li>
-                <a href="#pageSubmenu{{forloop.counter}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{page_type.name}}</a>
+                <a href="#pageSubmenu{{forloop.counter}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{page_type.title}}</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu1">
-                    {% for page in page_type.journal_page_set.all %}
+                    {% for page in page_type.journalpage_set.all %}
                          <li><a href="/journal/{{page.title}}"> &nbsp; &nbsp; {{page}}</a></li>
-                    {% endfor %}    
+                    {% endfor %}
                 </ul>
                 </li>
                 {% endfor %}
@@ -110,7 +110,7 @@
             <form action="#" class="subscribe-form">
             <div class="form-group d-flex">
             <div class="icon"><span class="icon-paper-plane"></span></div>
-            <input type="text" class="form-control" placeholder="Search Case Studies">
+            <input type="text" class="form-control" placeholder="Search Articles">
             </div>
             </form>
             </div>

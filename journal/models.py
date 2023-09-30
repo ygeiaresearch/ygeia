@@ -25,5 +25,11 @@ class JournalPage(Page):
     body = RichTextField(blank=True)
     page_type = models.ForeignKey(PageType, on_delete=models.CASCADE)
     content_panels = Page.content_panels + [
-        FieldPanel('body')
+        FieldPanel('body'),
+        FieldPanel('page_type'),
     ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context['page_types'] = PageType.objects.all()
+        return context

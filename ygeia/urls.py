@@ -27,6 +27,7 @@ urlpatterns = [
     path('subscribe/success/', root_views.subscribe_success, name="subscribe_success"),
     
     path('journal/home/', journal_views.home, name="journal_home"),
+    path('journal/page-type/<str:page_type>/', journal_views.page_type, name="journal_page_type"),
 
     path('journal/', include(wagtail_urls)),
     path('cms/', include(wagtailadmin_urls)),

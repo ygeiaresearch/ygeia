@@ -75,7 +75,7 @@
 </style>
 {% endblock %}
 {% block content %}
-	<div class="triangles">
+    <div class="triangles">
 
     </div>
 
@@ -87,21 +87,24 @@
     </div>
     <div class="col-md-10 col-md-offset-1" style="float:none; height:auto; overflow:auto; padding:50px;">
 
-        <h3> Articles </h3>
+        <h3> Page Type: {{page_type}} </h3>
         <ul> 
-            {% for page_type in page_types %}
             <li>
-                <ul> <a href="/journal/page-type/{{page_type.title}}">{{page_type.title}} </a>
-                    {% for page in page_type.journal_page_set.all %}
+                <ul>  
+                    {% for page in pages %}
                     <li> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/journal/{{page.slug}}">{{page.title}}</a></li>
                     {% empty %}
                     {% endfor %}
                 </ul>
             </li>
-            {% endfor %}
-          
         </ul>
-    	   
+    {% for page in pages %}
+
+    {% empty %}
+
+    {% endfor %}
+
+           
         </div>
     </div>
     {% endblock %}

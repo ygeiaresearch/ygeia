@@ -57,7 +57,7 @@
 			Template.keyups()
 		},
 		keyups : function(){
-			$('.input').change(function(){
+			$('.input').keydown(function(){
 				var mn_amt = $('#mn_amt').val();
 				var fe_amt = $('#fe_amt').val();
 				$('#output').text(

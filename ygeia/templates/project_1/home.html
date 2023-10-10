@@ -20,7 +20,7 @@
 {% block content %}
 <div class="col-md-10 col-md-offset-1 box">
 	<h1 style="color:#111; font-size:50px; font-weight: bold;"> Project 1: PotPerm Calculator </h1>
-	<p> This is the Potassium Permanganate calculator, the first project of Ygeia Research. It takes 2 inputs, Fe amount and Mn amount, and outputs a PotPerm amount, using the equation [Mn2+] * [Fe2+] * 2.874. </p>
+	<p> This is the Potassium Permanganate calculator, the first project of Ygeia Research. It takes 2 inputs, Fe amount and Mn amount, and outputs a PotPerm amount, using the equation [Mn+2] * 1.92 + [Fe+2] * 0.57 (all concentrations in mg/L) </p>
 	<br>
 	<div class="col-md-8 calculator-box">
 		<div class="inputlabel"> Fe amount</div>
@@ -40,7 +40,8 @@
 	</div>
 	<div style="clear:both">
 	<br>
-	<p> <b>Note:</b> 2.874 is rounded to 3 in calculation because more water is added. <b> <a href="https://github.com/ygeiaresearch/ygeia/blob/master/ygeia/static/js/main.js#L3"> Source Code </a></p>
+	<p> <b>Disclaimer:</b> This is ideally for water pH of 7 - 7.5 and reaction time of 5-10 minutes. 
+	<p><b> <a href="https://github.com/ygeiaresearch/ygeia/blob/master/ygeia/static/js/main.js#L3"> Source Code </a></b></p>
 	</div>
 </div>
 {% endblock %}

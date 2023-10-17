@@ -88,7 +88,7 @@ INSTALLED_APPS = [
 
     'root_app',
     'project_1',
-    'journal',
+    #'journal',
 
 ]
 

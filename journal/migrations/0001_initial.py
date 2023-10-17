@@ -10,7 +10,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('wagtailcore', '0091_remove_uploadeddocument_uploaded_by_user_and_more'),
     ]
 
     operations = [

@@ -65,10 +65,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'root_app',
-    'project_1',
-    'journal',
-
     'wagtail.contrib.forms',
 	'wagtail.contrib.redirects',
 	'wagtail.embeds',
@@ -90,6 +86,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
+    'root_app',
+    'project_1',
+    'journal',
 
 ]
 

@@ -2084,6 +2084,8 @@ p {
   border-radius:10px; 
   -moz-border-radius: 10px; 
   -webkit-border-radius: 10px;
+  height:auto;
+  overflow:auto;
 }
 .box{
   margin-top:50px; 

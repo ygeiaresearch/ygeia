@@ -1235,7 +1235,7 @@ body>section {
 .navbar-inverse .navbar-collapse {
   border-top: 0;
   padding-bottom: 0;
-  background:white;
+  background:#f8f8f8;
 }
 .panel-default {
   border-color: transparent

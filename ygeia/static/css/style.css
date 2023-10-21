@@ -1234,7 +1234,8 @@ body>section {
 }
 .navbar-inverse .navbar-collapse {
   border-top: 0;
-  padding-bottom: 0
+  padding-bottom: 0;
+  background:white;
 }
 .panel-default {
   border-color: transparent
@@ -2086,6 +2087,7 @@ p {
   -webkit-border-radius: 10px;
   height:auto;
   overflow:auto;
+  margin:10px;
 }
 .box{
   margin-top:50px; 
